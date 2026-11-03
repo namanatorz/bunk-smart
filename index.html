@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BunkSmart | Attendance planner</title>
+<meta name="description" content="Know exactly how many classes you can skip, and when you need to show up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand-lockup"><span class="brand-mark" aria-hidden="true">BS</span><div><h1>BunkSmart</h1><p class="chip" id="chip" hidden></p></div></div>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">Dark theme</button>
+  </header>
+
+  <section id="page-profile" hidden>
+    <h2>Student details</h2>
+    <p class="lead">Add your details once. They appear on your attendance report.</p>
+    <div class="panel"><div class="fields">
+      <div><label for="pf-name">Full name</label><input id="pf-name" autocomplete="name" maxlength="60"></div>
+      <div><label for="pf-roll">Roll or enrolment number</label><input id="pf-roll" maxlength="30"></div>
+      <div><label for="pf-course">Course and branch</label><input id="pf-course" maxlength="50" placeholder="e.g. B.Tech CSE"></div>
+      <div><label for="pf-sem">Semester</label><input id="pf-sem" maxlength="20" placeholder="e.g. 3"></div>
+    </div></div>
+    <a class="btn" href="#calculator">Save and continue</a>
+  </section>
+
+  <section id="page-calculator" hidden>
+    <h2>Attendance calculator</h2>
+    <p class="lead">Enter classes held and attended for each subject. Results update as you type.</p>
+    <div class="panel">
+      <div class="req"><label for="req">Required attendance (%)</label>
+        <input id="req" type="number" inputmode="decimal" min="1" max="100" step="0.1"></div>
+      <div id="rows"></div>
+      <button id="add" type="button">Add subject</button>
+    </div>
+    <div class="overall" id="overall" hidden></div>
+    <div class="grid" id="grid"></div>
+    <div class="actions"><a class="btn alt noprint" href="#graph">See graph and percentages</a></div>
+  </section>
+
+  <section id="page-graph" hidden>
+    <h2>Attendance report</h2>
+    <p class="lead" id="who"></p>
+    <div id="report"></div>
+    <div class="actions noprint"><button type="button" id="print">Save as PDF</button></div>
+  </section>
+
+  <footer>The dark marker on each bar is your target. Results are only as accurate as the numbers you enter, so check your college’s attendance rules before you skip anything.</footer>
+</div>
+
+<nav class="nav" aria-label="Pages">
+  <a href="#profile" data-p="profile">Student</a>
+  <a href="#calculator" data-p="calculator">Calculator</a>
+  <a href="#graph" data-p="graph">Graph</a>
+</nav>
+
+<script src="app.js" defer></script>
+</body>
+</html>
